@@ -7,6 +7,7 @@ struct Unite {
 	int pv = 1;
 	int vitesseAtk = 1;
 	int deplacement = 1;
+	int position = 0;
 
 	void debugAfficher();
 };
