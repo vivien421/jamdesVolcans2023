@@ -3,7 +3,11 @@
 
 void Joueur::debugAfficher() const {
 	std::printf("ressource [%d], vie [%d], unités :\n", ressource, vie);
-	for(auto i: unites) {
-		i.debugAfficher();
+	for(auto u: unites) {
+		u.debugAfficher();
+	}
+	std::puts("batiments : ");
+	for(auto b: batiments) {
+		b.debugAfficher();
 	}
 }
