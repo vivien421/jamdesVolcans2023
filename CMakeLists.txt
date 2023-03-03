@@ -37,10 +37,14 @@ message ( STATUS "Compiler flags: ${CMAKE_CXX_FLAGS}" )
 
 # Sources #-----------------------------------------------------------------------------------------
 set ( ZZ3_HEADERS
+	src/unite.hpp
+	src/joueur.hpp
     )
 
 set ( ZZ3_SOURCES
-      src/main.cpp
+	src/unite.cpp
+	src/joueur.cpp
+	src/main.cpp
     )
 
 include_directories ( src/ )
