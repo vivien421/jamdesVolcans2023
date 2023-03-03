@@ -7,5 +7,5 @@ struct Joueur {
 	int vie = 1;
 	std::vector<Unite> unites;
 
-	void debugAfficher();
+	void debugAfficher() const;
 };

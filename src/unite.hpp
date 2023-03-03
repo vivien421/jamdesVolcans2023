@@ -10,5 +10,5 @@ struct Unite {
 	int position = 0;
 	int taille = 1;
 
-	void debugAfficher();
+	void debugAfficher() const;
 };
