@@ -2,5 +2,5 @@
 #include <iostream>
 
 void Unite::debugAfficher() {
-	std::printf("prix [%d] degat unite [%d] degat batiment [%d] pv [%d] vitesse d'attaque [%d] deplacement [%d], position[%d]\n", prix, degatUnite, degatBatiment, pv, vitesseAtk, deplacement, position); 
+	std::printf("prix [%d] degat unite [%d] degat batiment [%d] pv [%d] vitesse d'attaque [%d] deplacement [%d], position [%d], taille [%d]\n", prix, degatUnite, degatBatiment, pv, vitesseAtk, deplacement, position, taille); 
 }
