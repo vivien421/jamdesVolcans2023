@@ -7,7 +7,7 @@ struct Unite : Entite {
 	int degatUnite = 0;
 	int degatBatiment = 0;
 	int vitesseAtk = 1;
-	int deplacement = 1;
+	float deplacement = 0.02;
 	int porte = 1;
 
 	Unite(int);
