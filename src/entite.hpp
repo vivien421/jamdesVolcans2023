@@ -9,6 +9,8 @@ struct Entite {
     float position = 0;
     int taille = 1;
 
+    Entite() {};
+    Entite(int new_prix, int new_pv, float new_position, int new_taille);
     virtual ~Entite() {};
 
     virtual void debugAfficher() const {

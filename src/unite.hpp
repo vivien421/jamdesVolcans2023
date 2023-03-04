@@ -9,6 +9,9 @@ struct Unite : Entite {
 	int deplacement = 1;
 	int porte = 1;
 
+	Unite() {};
+	Unite(int new_prix, int new_pv, int new_taille, int new_degatUnite, int new_degatBatiment,
+		int new_vitesseAtk, int new_deplacement, int new_porte);
 	virtual ~Unite() {};
 
 	void debugAfficher() const override;
