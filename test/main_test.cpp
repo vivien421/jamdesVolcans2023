@@ -70,12 +70,15 @@ void Test_Deplacement()
     j2.unites.push_back(Unite(20, 80, 3, 1, 1, 1, 1, 1));
     j2.batiments.push_back(Batiment(100, 300, 10, 1, "mur"));
 
-    printf("[Déplacement des unités - 1 frame]\n");
+    printf("[Déplacement des unités - 5 iteration]\n");
     printf("\tavant déplacement, j1\n");
     j1.debugAfficher();
     printf("\tavant déplacement, j2\n");
     j2.debugAfficher();
-    deplacerUnites(j1, j2);
+    for (int i  = 0; i < 5; i++) 
+    {
+        deplacerUnites(j1, j2);
+    }
     printf("\taprès déplacement, j1\n");
     j1.debugAfficher();
     printf("\taprès déplacement, j2\n");
