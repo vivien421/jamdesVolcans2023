@@ -37,6 +37,7 @@ message ( STATUS "Compiler flags: ${CMAKE_CXX_FLAGS}" )
 
 # Sources #-----------------------------------------------------------------------------------------
 set ( ZZ3_HEADERS
+	src/entite.hpp
 	src/unite.hpp
 	src/joueur.hpp
 	src/batiment.hpp
@@ -44,6 +45,7 @@ set ( ZZ3_HEADERS
     )
 
 set ( ZZ3_SOURCES
+	src/entite.cpp
 	src/unite.cpp
 	src/batiment.cpp
 	src/joueur.cpp
