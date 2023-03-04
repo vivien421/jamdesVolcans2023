@@ -59,7 +59,7 @@ int main()
 	// interface
 	sf::Sprite spawnButton;
 	spawnButton.setPosition(0.f, 0.0f);
-	spawnButton.setTexture(badSpiritTextures[1]);
+	spawnButton.setTexture(spiritTextures[1]);
 	spawnButton.setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
 
 	// timer 60 fps
