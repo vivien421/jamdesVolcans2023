@@ -4,6 +4,7 @@
 #include "unite.hpp"
 #include "joueur.hpp"
 #include "batiment.hpp"
+#include "../test/main_test.hpp"
 
 
 int main()
@@ -16,6 +17,8 @@ int main()
 	joueur.debugAfficher();
 	const int WIDTH = 800;
 	const int HEIGHT = 400;
+
+	
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
