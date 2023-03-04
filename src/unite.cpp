@@ -1,6 +1,14 @@
 #include "unite.hpp"
 #include <iostream>
 
+int Unite::compteur = 0;
+
+Unite::Unite(int p_type){
+	this->id = compteur;
+	this->type = p_type;
+	compteur++;
+	std::cout << "Nouvelle unite crée" << std::endl;
+}
 Unite::Unite(int new_prix, int new_pv, int new_taille, int new_degatUnite, int new_degatBatiment,
 			int new_vitesseAtk, int new_deplacement, int new_porte):
 	Entite(new_prix, new_pv, 0, new_taille), degatUnite(new_degatUnite), degatBatiment(new_degatBatiment),
