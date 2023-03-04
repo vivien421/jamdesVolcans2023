@@ -8,7 +8,7 @@ struct Joueur {
 	int vie = 1;
 	std::vector<Unite> unites;
 	std::vector<Batiment> batiments;
-	
+	Batiment base;
 
 	void debugAfficher() const;
 };

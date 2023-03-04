@@ -41,12 +41,14 @@ set ( ZZ3_HEADERS
 	src/unite.hpp
 	src/joueur.hpp
 	src/batiment.hpp
+	src/gameLoop.hpp
 	test/main_test.hpp
     )
 
 set ( ZZ3_SOURCES
 	src/entite.cpp
 	src/unite.cpp
+	src/gameLoop.cpp
 	src/batiment.cpp
 	src/joueur.cpp
 	src/main.cpp
@@ -56,11 +58,11 @@ set ( ZZ3_SOURCES
 include_directories ( src/ )
 
 # Executables #-------------------------------------------------------------------------------------
-add_executable ( Prog
+add_executable ( ../Prog
 		src/main.cpp
                  ${ZZ3_HEADERS}
                  ${ZZ3_SOURCES}
                )
 # Build #-------------------------------------------------------------------------------------------
-set_target_properties ( Prog PROPERTIES LINKER_LANGUAGE C )
-target_link_libraries ( Prog sfml-graphics sfml-audio )
+set_target_properties ( ../Prog PROPERTIES LINKER_LANGUAGE C )
+target_link_libraries ( ../Prog sfml-graphics sfml-audio )
