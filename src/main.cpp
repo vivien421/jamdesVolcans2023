@@ -6,12 +6,14 @@
 #include "joueur.hpp"
 #include "batiment.hpp"
 #include "gameLoop.hpp"
-
+#include "../test/main_test.hpp"
 
 int main()
 {
 	const int WIDTH = 800;
 	const int HEIGHT = 400;
+
+	
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");

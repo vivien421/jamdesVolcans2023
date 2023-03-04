@@ -41,6 +41,7 @@ set ( ZZ3_HEADERS
 	src/joueur.hpp
 	src/batiment.hpp
 	src/gameLoop.hpp
+	test/main_test.hpp
     )
 
 set ( ZZ3_SOURCES
@@ -49,6 +50,7 @@ set ( ZZ3_SOURCES
 	src/batiment.cpp
 	src/joueur.cpp
 	src/main.cpp
+	test/main_test.cpp
     )
 
 include_directories ( src/ )
