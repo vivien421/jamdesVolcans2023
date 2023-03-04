@@ -8,12 +8,6 @@
 
 int main()
 {
-	Batiment bat;
-	Unite unite;
-	Joueur joueur;
-	joueur.batiments.push_back(bat);
-	joueur.unites.push_back(unite);
-	joueur.debugAfficher();
 	const int WIDTH = 800;
 	const int HEIGHT = 400;
 
@@ -64,6 +58,11 @@ int main()
 	music.play();
 	*/
 
+	// initialisation du jeu
+	Unite unite;
+	Joueur joueur, bot;
+	joueur.unites.push_back(unite);
+
 	// Start the game loop
 	while (window.isOpen())
 	{
@@ -75,10 +74,20 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+		// Fin de la partie
+		if(joueur.base.pv <= 0) {
+			std::puts("Perdu !");
+			window.close();
+		}
+		if(bot.base.pv <= 0) {
+			std::puts("Perdu !");
+			window.close();
+		}
 
 		//Update position
 		badSpirit.setPosition(sf::Vector2f(15.36*(1.f), 85.56484*(1.f))); // position absolue
 		goodSpirit.setPosition(sf::Vector2f(((float) WIDTH - 150.36)*(1.f), 85.56484*(1.f))); // position absolue
+		
 		
 		// Clear screen
 		window.clear();
