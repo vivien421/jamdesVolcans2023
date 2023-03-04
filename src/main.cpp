@@ -93,22 +93,25 @@ int main()
 				{
 					sf::Vector2i pos = sf::Mouse::getPosition(window);
 					sf::Vector2f mousePosF(static_cast<float>(pos.x), static_cast<float>(pos.y));
-					if (spawnButton.getGlobalBounds().contains(mousePosF)) {
-						// Ajout d'une unitée
-						Unite newUnit = Unite(6);
-						newUnit.position = 0;
-						demon.unites.push_back(newUnit);
-						unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
-						unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
-						unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
-					}
-					if (spawnButtons[0].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(0), spiritTextures);
-					else if (spawnButtons[1].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(1), spiritTextures);
-					else if (spawnButtons[2].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(2), spiritTextures);
-					else if (spawnButtons[3].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(3), spiritTextures);
-					else if (spawnButtons[4].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(4), spiritTextures);
-					else if (spawnButtons[5].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(5), spiritTextures);
-					else if (spawnButtons[6].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(6), spiritTextures);
+					int typeNewUnit;
+
+					if (spawnButtons[0].getGlobalBounds().contains(mousePosF)) typeNewUnit=0;
+					else if (spawnButtons[1].getGlobalBounds().contains(mousePosF)) typeNewUnit=1;
+					else if (spawnButtons[2].getGlobalBounds().contains(mousePosF)) typeNewUnit=2;
+					else if (spawnButtons[3].getGlobalBounds().contains(mousePosF)) typeNewUnit=3;
+					else if (spawnButtons[4].getGlobalBounds().contains(mousePosF)) typeNewUnit=4;
+					else if (spawnButtons[5].getGlobalBounds().contains(mousePosF)) typeNewUnit=5;
+					else if (spawnButtons[6].getGlobalBounds().contains(mousePosF)) typeNewUnit=6;
+
+					// Ajout d'une unitée
+					Unite newUnit = Unite(typeNewUnit);
+					std::cout << newUnit.id << std::endl;
+					newUnit.position = 0;
+					demon.unites.push_back(newUnit);
+					unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
+					unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+					unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
+					
 					break;
 				}
 			}
