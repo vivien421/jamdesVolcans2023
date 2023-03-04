@@ -9,6 +9,7 @@ struct Entite {
 	int pv = 1;
 	float position = 0;
 	int taille = 1;
+	bool collision = true;
 
 	static int compteur;
 
