@@ -18,6 +18,7 @@ int main()
 	Test_Unite();
 	Test_Batiment();
 	Test_Joueur();
+	Test_Deplacement();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
