@@ -29,7 +29,7 @@ void Test_Unite()
     u.debugAfficher();
 
     printf("[Unite par valeur - debugAfficher]\n");
-    Unite u2(20, 80, 3, 1, 1, 1, 1, 1);
+    Unite u2(20, 80, 3, 1, 1, 1, 1, 1, 1);
     u2.debugAfficher();
 
     printf("\n");
@@ -56,7 +56,7 @@ void Test_Joueur()
 
     printf("[Joueur avec batiments et unités - debugAfficher]\n");
     j.unites.push_back(Unite());
-    j.unites.push_back(Unite(20, 80, 3, 1, 1, 1, 1, 1));
+    j.unites.push_back(Unite(20, 80, 3, 1, 1, 1, 1, 1, 1));
     j.batiments.push_back(Batiment(100, 300, 10, 1, "mur"));
     j.debugAfficher();
 }
@@ -66,23 +66,46 @@ void Test_Deplacement()
     Joueur j1;
     Joueur j2;
 
-    j1.unites.push_back(Unite());
-    j1.unites.push_back(Unite(20, 80, 3, 1, 1, 1, 3, 1));
-    j2.unites.push_back(Unite(20, 80, 3, 1, 1, 1, 1, 1));
-    j2.batiments.push_back(Batiment(100, 300, 10, 1, "mur"));
+    j1.unites.push_back(Unite(20, 80, 1, 1, 1, 1, 2, 1, 1));
+    j2.unites.push_back(Unite(20, 80, 1, 1, 1, 1, 3, 1, 0));
+    j2.batiments.push_back(Batiment(100, 300, 35, 5, "mur"));
 
-    printf("[Déplacement des unités - 5 iteration]\n");
+    printf("[Déplacement des unités - 500 iteration]\n");
     printf("\tavant déplacement, j1\n");
     j1.debugAfficher();
     printf("\tavant déplacement, j2\n");
     j2.debugAfficher();
-    for (int i  = 0; i < 5; i++) 
+    for (int i  = 0; i < 500; i++) 
     {
         deplacerUnites(j1, j2);
     }
-    printf("\taprès déplacement, j1\n");
+    printf("\taprès déplacement 1, j1\n");
     j1.debugAfficher();
-    printf("\taprès déplacement, j2\n");
+    printf("\taprès déplacement 1, j2\n");
+    j2.debugAfficher();
+
+    j1.unites.push_back(Unite(10, 50, 3, 1, 1, 1, 1, 1 ,1));
+
+    printf("[Déplacement des unités - 1000 iteration]\n");
+    for (int i  = 0; i < 500; i++) 
+    {
+        deplacerUnites(j1, j2);
+    }
+    printf("\taprès déplacement 2, j1\n");
+    j1.debugAfficher();
+    printf("\taprès déplacement 2, j2\n");
+    j2.debugAfficher();
+
+    j1.unites.push_back(Unite(20, 80, 2, 1, 1, 1, 3, 1, 1));
+
+    printf("[Déplacement des unités - 1500 iteration]\n");
+    for (int i  = 0; i < 500; i++) 
+    {
+        deplacerUnites(j1, j2);
+    }
+    printf("\taprès déplacement 3, j1\n");
+    j1.debugAfficher();
+    printf("\taprès déplacement 3, j2\n");
     j2.debugAfficher();
 }
 
