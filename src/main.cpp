@@ -68,6 +68,14 @@ int main()
 	music.play();
 	*/
 
+	// timer 60 fps
+	double t = 0.0;
+	double deltaT = 1.0/60.0;
+
+	// initialisation du jeu
+	Joueur demon, reveur;
+	std::unordered_map<int, sf::Sprite> unitesSprite;
+
 	// interface
 	std::array<sf::Sprite, 7> spawnButtons;
 	float buttonScale = 0.1 * scale;
@@ -77,13 +85,13 @@ int main()
 		spawnButtons[i].setPosition(buttonScale * i * 1000.f, 0.0f);
 	}
 
-	// timer 60 fps
-	double t = 0.0;
-	double deltaT = 1.0/60.0;
-
-	// initialisation du jeu
-	Joueur demon, reveur;
-	std::unordered_map<int, sf::Sprite> unitesSprite;
+	std::array<sf::Sprite, 6> spawnBatiments;
+	float batimentScale = 0.1 * scale;
+	for(int i = 0; i < 6; ++i) {
+		spawnBatiments[i].setTexture(buildingTextures[i]);
+		spawnBatiments[i].setScale(sf::Vector2f(batimentScale * (1.f), batimentScale*(1.f))); // facteurs d'échelle absolus
+		spawnBatiments[i].setPosition(batimentScale * i * 1000.f, 1500.0f * batimentScale);
+	}
 
 	// Start the game loop
 	while (window.isOpen())
@@ -124,6 +132,8 @@ int main()
 					
 					break;
 				}
+				default:
+					break;
 			}
 		}
 		// Fin de la partie
@@ -155,6 +165,8 @@ int main()
 		for( const auto& [key, value] : unitesSprite)
 			window.draw(value);
 		for(auto b: spawnButtons)
+	        	window.draw(b);
+		for(auto b: spawnBatiments)
 	        	window.draw(b);
 		
 		
