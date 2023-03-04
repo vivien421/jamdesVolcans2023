@@ -18,11 +18,11 @@ void CollisionEngine::AjusterPosition(Entite& e1, Entite& e2) {
     {
         if (e1.position < e2.position)
         {
-            e1.position -= e2.position - (e1.position + (float)e1.taille);
+            e1.position -= (e1.position + (float)e1.taille) - e2.position;
         }
         else
         {
-            e1.position += e1.position - (e2.position + (float)e2.taille);
+            e1.position += (e2.position + (float)e2.taille) - e1.position;
         }
     }
 }
