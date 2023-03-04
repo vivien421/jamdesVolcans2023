@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string> 
 #include <unordered_map>
+#include <math.h>
 #include "unite.hpp"
 #include "joueur.hpp"
 #include "batiment.hpp"
@@ -13,6 +14,7 @@ int main()
 {
 	const int WIDTH = 800;
 	const int HEIGHT = 400;
+	const float uniteScale = 0.1;
 
 	//Tests unitaires
 	Test_Entite();
@@ -67,11 +69,8 @@ int main()
 	double deltaT = 1.0/60.0;
 
 	// initialisation du jeu
-	Unite unite(3);
 	Joueur demon, reveur;
 	std::unordered_map<int, sf::Sprite> unitesSprite;
-
-	ajouteUnite(demon, unitesSprite, unite, spiritTextures);
 
 	// Start the game loop
 	while (window.isOpen())
@@ -92,8 +91,13 @@ int main()
 					sf::Vector2i pos = sf::Mouse::getPosition(window);
 					sf::Vector2f mousePosF(static_cast<float>(pos.x), static_cast<float>(pos.y));
 					if (spawnButton.getGlobalBounds().contains(mousePosF)) {
-						std::puts("click");
-						ajouteUnite(demon, unitesSprite, Unite(2), spiritTextures);
+						// Ajout d'une unitée
+						Unite newUnit = Unite(6);
+						newUnit.position = 0;
+						demon.unites.push_back(newUnit);
+						unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
+						unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+						unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
 					}
 					break;
 				}
@@ -112,7 +116,8 @@ int main()
 		//Update position
 		deplacerUnites(demon, reveur);
 		for(auto & u: demon.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f(u.position*(1.f), 100*(1.f)));
+			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
+			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
 		}
 		for(auto u: reveur.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(u.position*(1.f), 100*(1.f)));
