@@ -5,3 +5,5 @@ cmake_install.cmake
 .vscode/
 Makefile
 Prog
+Prog.dir/
+build/*

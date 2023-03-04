@@ -14,14 +14,18 @@ int main()
 	const int WIDTH = 800;
 	const int HEIGHT = 400;
 
-	
+	//Tests unitaires
+	Test_Entite();
+	Test_Unite();
+	Test_Batiment();
+	Test_Joueur();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
 	
 	// Load the background sprite to display
 	sf::Texture backgroundTexture;
-	if (!backgroundTexture.loadFromFile("res/background.png"))
+	if (!backgroundTexture.loadFromFile("../res/background.png"))
 		return EXIT_FAILURE;
 	sf::Sprite background(backgroundTexture);
 	const float scale = ((float) WIDTH)/backgroundTexture.getSize().x;
@@ -38,7 +42,7 @@ int main()
 	for (int i = 0; i < 7; i++)
 	{
 		spiritTextures[i] = sf::Texture();
-		if (!spiritTextures[i].loadFromFile("res/units/badSpirit"+std::to_string(i+1)+".png"))
+		if (!spiritTextures[i].loadFromFile("../res/units/badSpirit"+std::to_string(i+1)+".png"))
 			return EXIT_FAILURE;
 		//couleur cauchemar = #815628; couleur rêve = #0d5163
 	}
@@ -51,6 +55,12 @@ int main()
 	// Play the music
 	music.play();
 	*/
+
+	// interface
+	sf::Sprite spawnButton;
+	spawnButton.setPosition(0.f, 0.0f);
+	spawnButton.setTexture(badSpiritTextures[1]);
+	spawnButton.setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
 
 	// timer 60 fps
 	double t = 0.0;
@@ -71,9 +81,22 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			// Close window: exit
-			if (event.type == sf::Event::Closed)
-				window.close();
+			switch( event.type ) {
+
+				// Close window: exit
+				case sf::Event::Closed:
+					window.close();
+					break;
+				case sf::Event::MouseButtonPressed: 
+				{
+					sf::Vector2i pos = sf::Mouse::getPosition(window);
+					sf::Vector2f mousePosF(static_cast<float>(pos.x), static_cast<float>(pos.y));
+					if (spawnButton.getGlobalBounds().contains(mousePosF)) {
+						std::puts("click");
+					}
+					break;
+				}
+			}
 		}
 		// Fin de la partie
 		if(demon.base.pv <= 0) {
