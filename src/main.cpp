@@ -120,6 +120,7 @@ int main()
 					else if (spawnButtons[4].getGlobalBounds().contains(mousePosF)) typeNewUnit=4;
 					else if (spawnButtons[5].getGlobalBounds().contains(mousePosF)) typeNewUnit=5;
 					else if (spawnButtons[6].getGlobalBounds().contains(mousePosF)) typeNewUnit=6;
+					else break;
 
 					// Ajout d'une unitée
 					Unite newUnit = Unite(typeNewUnit);
