@@ -97,10 +97,24 @@ CMakeFiles/../Prog.dir/src/unite.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/../Prog.dir/src/unite.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/unite.cpp -o CMakeFiles/../Prog.dir/src/unite.cpp.s
 
+CMakeFiles/../Prog.dir/src/gameLoop.cpp.o: CMakeFiles/../Prog.dir/flags.make
+CMakeFiles/../Prog.dir/src/gameLoop.cpp.o: ../src/gameLoop.cpp
+CMakeFiles/../Prog.dir/src/gameLoop.cpp.o: CMakeFiles/../Prog.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/../Prog.dir/src/gameLoop.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/../Prog.dir/src/gameLoop.cpp.o -MF CMakeFiles/../Prog.dir/src/gameLoop.cpp.o.d -o CMakeFiles/../Prog.dir/src/gameLoop.cpp.o -c /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/gameLoop.cpp
+
+CMakeFiles/../Prog.dir/src/gameLoop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/../Prog.dir/src/gameLoop.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/gameLoop.cpp > CMakeFiles/../Prog.dir/src/gameLoop.cpp.i
+
+CMakeFiles/../Prog.dir/src/gameLoop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/../Prog.dir/src/gameLoop.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/gameLoop.cpp -o CMakeFiles/../Prog.dir/src/gameLoop.cpp.s
+
 CMakeFiles/../Prog.dir/src/batiment.cpp.o: CMakeFiles/../Prog.dir/flags.make
 CMakeFiles/../Prog.dir/src/batiment.cpp.o: ../src/batiment.cpp
 CMakeFiles/../Prog.dir/src/batiment.cpp.o: CMakeFiles/../Prog.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/../Prog.dir/src/batiment.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/../Prog.dir/src/batiment.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/../Prog.dir/src/batiment.cpp.o -MF CMakeFiles/../Prog.dir/src/batiment.cpp.o.d -o CMakeFiles/../Prog.dir/src/batiment.cpp.o -c /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/batiment.cpp
 
 CMakeFiles/../Prog.dir/src/batiment.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/../Prog.dir/src/batiment.cpp.s: cmake_force
 CMakeFiles/../Prog.dir/src/joueur.cpp.o: CMakeFiles/../Prog.dir/flags.make
 CMakeFiles/../Prog.dir/src/joueur.cpp.o: ../src/joueur.cpp
 CMakeFiles/../Prog.dir/src/joueur.cpp.o: CMakeFiles/../Prog.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/../Prog.dir/src/joueur.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/../Prog.dir/src/joueur.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/../Prog.dir/src/joueur.cpp.o -MF CMakeFiles/../Prog.dir/src/joueur.cpp.o.d -o CMakeFiles/../Prog.dir/src/joueur.cpp.o -c /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/joueur.cpp
 
 CMakeFiles/../Prog.dir/src/joueur.cpp.i: cmake_force
@@ -125,27 +139,45 @@ CMakeFiles/../Prog.dir/src/joueur.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/../Prog.dir/src/joueur.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/joueur.cpp -o CMakeFiles/../Prog.dir/src/joueur.cpp.s
 
+CMakeFiles/../Prog.dir/test/main_test.cpp.o: CMakeFiles/../Prog.dir/flags.make
+CMakeFiles/../Prog.dir/test/main_test.cpp.o: ../test/main_test.cpp
+CMakeFiles/../Prog.dir/test/main_test.cpp.o: CMakeFiles/../Prog.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/../Prog.dir/test/main_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/../Prog.dir/test/main_test.cpp.o -MF CMakeFiles/../Prog.dir/test/main_test.cpp.o.d -o CMakeFiles/../Prog.dir/test/main_test.cpp.o -c /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/test/main_test.cpp
+
+CMakeFiles/../Prog.dir/test/main_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/../Prog.dir/test/main_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/test/main_test.cpp > CMakeFiles/../Prog.dir/test/main_test.cpp.i
+
+CMakeFiles/../Prog.dir/test/main_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/../Prog.dir/test/main_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/test/main_test.cpp -o CMakeFiles/../Prog.dir/test/main_test.cpp.s
+
 # Object files for target ../Prog
 __/Prog_OBJECTS = \
 "CMakeFiles/../Prog.dir/src/main.cpp.o" \
 "CMakeFiles/../Prog.dir/src/unite.cpp.o" \
+"CMakeFiles/../Prog.dir/src/gameLoop.cpp.o" \
 "CMakeFiles/../Prog.dir/src/batiment.cpp.o" \
-"CMakeFiles/../Prog.dir/src/joueur.cpp.o"
+"CMakeFiles/../Prog.dir/src/joueur.cpp.o" \
+"CMakeFiles/../Prog.dir/test/main_test.cpp.o"
 
 # External object files for target ../Prog
 __/Prog_EXTERNAL_OBJECTS =
 
 ../Prog: CMakeFiles/../Prog.dir/src/main.cpp.o
 ../Prog: CMakeFiles/../Prog.dir/src/unite.cpp.o
+../Prog: CMakeFiles/../Prog.dir/src/gameLoop.cpp.o
 ../Prog: CMakeFiles/../Prog.dir/src/batiment.cpp.o
 ../Prog: CMakeFiles/../Prog.dir/src/joueur.cpp.o
+../Prog: CMakeFiles/../Prog.dir/test/main_test.cpp.o
 ../Prog: CMakeFiles/../Prog.dir/build.make
 ../Prog: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 ../Prog: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1
 ../Prog: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 ../Prog: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 ../Prog: CMakeFiles/../Prog.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable ../Prog"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable ../Prog"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/../Prog.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

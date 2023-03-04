@@ -2,6 +2,7 @@ CMakeFiles/../Prog.dir/src/unite.cpp.o: \
  /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/unite.cpp \
  /usr/include/stdc-predef.h \
  /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/unite.hpp \
+ /mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/src/entite.hpp \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
