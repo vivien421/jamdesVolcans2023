@@ -8,6 +8,7 @@ struct Entite {
     int pv = 1;
     float position = 0;
     int taille = 1;
+    bool collision = true;
 
     Entite() {};
     Entite(int new_prix, int new_pv, float new_position, int new_taille);
