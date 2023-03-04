@@ -24,7 +24,7 @@ int main()
 	
 	// Load the background sprite to display
 	sf::Texture backgroundTexture;
-	if (!backgroundTexture.loadFromFile("res/background.png"))
+	if (!backgroundTexture.loadFromFile("../res/background.png"))
 		return EXIT_FAILURE;
 	sf::Sprite background(backgroundTexture);
 	const float scale = ((float) WIDTH)/backgroundTexture.getSize().x;
@@ -44,7 +44,7 @@ int main()
 	for (int i = 0; i < 7; i++)
 	{
 		badSpiritTextures[i] = sf::Texture();
-		if (!badSpiritTextures[i].loadFromFile("res/units/badSpirit"+std::to_string(i+1)+".png"))
+		if (!badSpiritTextures[i].loadFromFile("../res/units/badSpirit"+std::to_string(i+1)+".png"))
 			return EXIT_FAILURE;
 		//cauchemar ajouté
 		badSpirits[i] = sf::Sprite(badSpiritTextures[i]);
@@ -76,9 +76,9 @@ int main()
 
 	// interface
 	sf::Sprite spawnButton;
-	spawnButton.setPosition(50.0f, 500.0f);
-	spawnButton.setTexture(goodSpiritTexture);
-
+	spawnButton.setPosition(0.f, 0.0f);
+	spawnButton.setTexture(badSpiritTextures[1]);
+	spawnButton.setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
 
 	// timer 60 fps
 	double t = 0.0;
@@ -100,9 +100,22 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			// Close window: exit
-			if (event.type == sf::Event::Closed)
-				window.close();
+			switch( event.type ) {
+
+				// Close window: exit
+				case sf::Event::Closed:
+					window.close();
+					break;
+				case sf::Event::MouseButtonPressed: 
+				{
+					sf::Vector2i pos = sf::Mouse::getPosition(window);
+					sf::Vector2f mousePosF(static_cast<float>(pos.x), static_cast<float>(pos.y));
+					if (spawnButton.getGlobalBounds().contains(mousePosF)) {
+						std::puts("click");
+					}
+					break;
+				}
+			}
 		}
 		// Fin de la partie
 		if(joueur.base.pv <= 0) {
@@ -124,6 +137,7 @@ int main()
 		
 		// Draw the sprite
 		window.draw(background);
+		window.draw(spawnButton);
 		for (int i = 0; i < 7; i++)
 		{
 			window.draw(badSpirits[i]);
