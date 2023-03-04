@@ -6,12 +6,7 @@ class Controleur {
 	Joueur j1, j2;
 
 	void actualisation();
-<<<<<<< HEAD
-	void creerUnite(int id);
-	void creerBatiment(int id);
-=======
 	void creerUnite(Joueur joueur, int id);
->>>>>>> dev_nathan
 };
 
 typedef struct statsUnites {
