@@ -5,6 +5,7 @@
 #include "entite.hpp"
 #include "unite.hpp"
 #include "batiment.hpp"
+#include "joueur.hpp"
 
 void Test_Entite()
 {
@@ -43,4 +44,17 @@ void Test_Batiment()
     b2.debugAfficher();
 
     printf("\n");
+}
+
+void Test_Joueur()
+{
+    printf("[Joueur par défaut: debugAfficher]\n");
+    Joueur j;
+    j.debugAfficher();
+
+    printf("[Joueur avec batiments et unités: debugAfficher]\n");
+    j.unites.push_back(Unite());
+    j.unites.push_back(Unite(20, 80, 3, 1, 1, 1, 1, 1));
+    j.batiments.push_back(Batiment(100, 300, 10, 1, "mur"));
+    j.debugAfficher();
 }
