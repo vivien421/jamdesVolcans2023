@@ -12,7 +12,7 @@ struct Entite {
     virtual ~Entite() {};
 
     virtual void debugAfficher() const {
-        std::printf("Entite: prix [%d] pv [%d], position [%d], taille [%d]\n", prix, pv, position, taille); 
+        std::printf("Entite: prix [%d] pv [%d], position [%f], taille [%d]\n", prix, pv, position, taille); 
     }
 };
 
