@@ -1,10 +1,8 @@
 #include "unite.hpp"
 #include <iostream>
 
-int Unite::compteur = 0;
 
 Unite::Unite(int p_type){
-	this->id = compteur;
 	this->type = p_type;
 	compteur++;
 	std::cout << "Nouvelle unite crée" << std::endl;

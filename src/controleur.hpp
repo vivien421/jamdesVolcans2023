@@ -6,4 +6,5 @@ class Controleur {
 
 	void actualisation();
 	void creerUnite(int id);
+	void creerBatiment(int id);
 };

@@ -59,10 +59,13 @@ int main()
 	*/
 
 	// interface
-	sf::Sprite spawnButton;
-	spawnButton.setPosition(0.f, 0.0f);
-	spawnButton.setTexture(spiritTextures[1]);
-	spawnButton.setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
+	std::array<sf::Sprite, 7> spawnButtons;
+	float buttonScale = 0.1 * scale;
+	for(int i = 0; i < 7; ++i) {
+		spawnButtons[i].setTexture(spiritTextures[i]);
+		spawnButtons[i].setScale(sf::Vector2f(buttonScale * (1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
+		spawnButtons[i].setPosition(buttonScale * i * 1000.f, 0.0f);
+	}
 
 	// timer 60 fps
 	double t = 0.0;
@@ -99,6 +102,13 @@ int main()
 						unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
 						unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
 					}
+					if (spawnButtons[0].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(0), spiritTextures);
+					else if (spawnButtons[1].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(1), spiritTextures);
+					else if (spawnButtons[2].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(2), spiritTextures);
+					else if (spawnButtons[3].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(3), spiritTextures);
+					else if (spawnButtons[4].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(4), spiritTextures);
+					else if (spawnButtons[5].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(5), spiritTextures);
+					else if (spawnButtons[6].getGlobalBounds().contains(mousePosF)) ajouteUnite(demon, unitesSprite, Unite(6), spiritTextures);
 					break;
 				}
 			}
@@ -130,8 +140,9 @@ int main()
 		// Draw the sprite
 		window.draw(background);
 		for( const auto& [key, value] : unitesSprite)
-        	window.draw(value);
-        	window.draw(spawnButton);
+			window.draw(value);
+		for(auto b: spawnButtons)
+	        	window.draw(b);
 		
 		
 		// Draw the string
