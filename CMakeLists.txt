@@ -41,6 +41,7 @@ set ( ZZ3_HEADERS
 	src/unite.hpp
 	src/joueur.hpp
 	src/batiment.hpp
+	src/controleur.hpp
 	src/gameLoop.hpp
 	src/collisionEngine.hpp
 	test/main_test.hpp
@@ -49,6 +50,7 @@ set ( ZZ3_HEADERS
 set ( ZZ3_SOURCES
 	src/entite.cpp
 	src/unite.cpp
+	src/controleur.cpp
 	src/gameLoop.cpp
 	src/batiment.cpp
 	src/collisionEngine.cpp
