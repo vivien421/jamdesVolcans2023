@@ -1,3 +1,0 @@
-/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/CMakeFiles/Prog.dir
-/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/CMakeFiles/edit_cache.dir
-/mnt/c/Users/vivie/Documents/Dev/jamdesvolcans_03_03_2023/CMakeFiles/rebuild_cache.dir
