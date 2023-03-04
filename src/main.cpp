@@ -74,6 +74,12 @@ int main()
 	music.play();
 	*/
 
+	// interface
+	sf::Sprite spawnButton;
+	spawnButton.setPosition(50.0f, 500.0f);
+	spawnButton.setTexture(goodSpiritTexture);
+
+
 	// timer 60 fps
 	double t = 0.0;
 	double deltaT = 1.0/60.0;
