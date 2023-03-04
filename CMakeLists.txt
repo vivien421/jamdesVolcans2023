@@ -52,11 +52,11 @@ set ( ZZ3_SOURCES
 include_directories ( src/ )
 
 # Executables #-------------------------------------------------------------------------------------
-add_executable ( Prog
+add_executable ( ../Prog
 		src/main.cpp
                  ${ZZ3_HEADERS}
                  ${ZZ3_SOURCES}
                )
 # Build #-------------------------------------------------------------------------------------------
-set_target_properties ( Prog PROPERTIES LINKER_LANGUAGE C )
-target_link_libraries ( Prog sfml-graphics sfml-audio )
+set_target_properties ( ../Prog PROPERTIES LINKER_LANGUAGE C )
+target_link_libraries ( ../Prog sfml-graphics sfml-audio )
