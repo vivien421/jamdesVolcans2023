@@ -106,6 +106,7 @@ int main()
 
 		//Update position
 		//=====================Affichage=================	
+
 		badSpirits[0].setPosition(sf::Vector2f(15.36*(1.f), 85.56484*(1.f))); // position absolue
 		
 		// Clear screen
