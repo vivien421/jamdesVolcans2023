@@ -5,10 +5,11 @@
 
 struct Joueur {
 	int ressource = 10;
-	int vie = 1;
 	std::vector<Unite> unites;
 	std::vector<Batiment> batiments;
-	Batiment base;
+	Batiment base{0, 500, -5, 5, "base"};
+
+	int getVie() const { return base.pv; }
 
 	void debugAfficher() const;
 };
