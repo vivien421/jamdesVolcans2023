@@ -8,14 +8,14 @@
 
 int main()
 {
-	const int WIDTH = 1800;
-	const int HEIGHT = 1000;
 	Batiment bat;
 	Unite unite;
 	Joueur joueur;
 	joueur.batiments.push_back(bat);
 	joueur.unites.push_back(unite);
 	joueur.debugAfficher();
+	const int WIDTH = 1800;
+	const int HEIGHT = 1000;
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
