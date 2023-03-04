@@ -9,5 +9,5 @@ Entite::Entite(int new_prix, int new_pv, float new_position, int new_taille):
 }
 
 void Entite::debugAfficher() const {
-    std::printf("Entite: prix [%d] pv [%d], position [%f], taille [%d]\n", prix, pv, position, taille); 
+    std::printf("Entite: prix [%d] pv [%d], position [%f], taille [%f]\n", prix, pv, position, taille); 
 }
