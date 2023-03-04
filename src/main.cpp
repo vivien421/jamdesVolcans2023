@@ -9,16 +9,13 @@
 
 int main()
 {
-	Batiment bat;
-	Unite unite;
-	Joueur joueur;
-	joueur.batiments.push_back(bat);
-	joueur.unites.push_back(unite);
-	joueur.debugAfficher();
 	const int WIDTH = 800;
 	const int HEIGHT = 400;
 
-	
+	//Tests unitaires
+	Test_Entite();
+	Test_Unite();
+	Test_Batiment();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");

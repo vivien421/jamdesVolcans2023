@@ -2,5 +2,7 @@
 #define MAIN_TEST_HPP
 
 void Test_Entite();
+void Test_Unite();
+void Test_Batiment();
 
 #endif
