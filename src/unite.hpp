@@ -1,15 +1,15 @@
 #pragma once
 
-struct Unite {
-	int prix = 0;
+#include "entite.hpp"
+
+struct Unite : Entite {
 	int degatUnite = 0;
 	int degatBatiment = 0;
-	int pv = 1;
 	int vitesseAtk = 1;
 	int deplacement = 1;
-	int position = 0;
-	int taille = 1;
 	int porte = 1;
 
-	void debugAfficher() const;
+	virtual ~Unite() {};
+
+	void debugAfficher() const override;
 };
