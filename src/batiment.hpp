@@ -1,10 +1,12 @@
 #pragma once
 
-struct Batiment {
-	int prix = 0;
-	int pv = 1;
-	int position = 0;
-	int taille = 1;
+#include <string>
+#include "entite.hpp"
 
-	void debugAfficher() const;
+struct Batiment : Entite {
+	std::string type;
+
+	virtual ~Batiment() {};
+
+	void debugAfficher() const override;
 };
