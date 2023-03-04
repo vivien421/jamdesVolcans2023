@@ -1,6 +1,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <string> 
 #include "unite.hpp"
 #include "joueur.hpp"
 #include "batiment.hpp"
@@ -33,27 +34,35 @@ int main()
 	background.setScale(sf::Vector2f(scale*(1.f), scale*(1.f))); // facteurs d'échelle absolus
 	background.scale(sf::Vector2f(1.f, 1.f)); // facters d'échelle relatifs à l'échelle actuelle
 
-	//Charge la texture pour les cauchmars
-	sf::Texture badSpiritTexture;
-	if (!badSpiritTexture.loadFromFile("res/badSpirit.png"))
-		return EXIT_FAILURE;
-	sf::Sprite badSpirit(badSpiritTexture);
-	// position
-	badSpirit.setPosition(sf::Vector2f(0, 0)); // position absolue
-	//badSpirit.move(sf::Vector2f(0, 0)); // décalage relatif à la position actuelle
-	// scale
-	badSpirit.setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
-	//badSpirit.scale(sf::Vector2f(0.1f, 0.1f)); // facters d'échelle relatifs à l'échelle actuelle
+	//Chargement des textures pour les cauchmars et rêves
+	std::array<sf::Texture, 7> badSpiritTextures;
+	
+	std::array<sf::Sprite, 7> badSpirits;
+	std::array<sf::Sprite, 7> goodSpirits;
+	
+	for (int i = 0; i < 7; i++)
+	{
+		badSpiritTextures[i] = sf::Texture();
+		if (!badSpiritTextures[i].loadFromFile("res/units/badSpirit"+std::to_string(i+1)+".png"))
+			return EXIT_FAILURE;
+		//cauchemar ajouté
+		badSpirits[i] = sf::Sprite(badSpiritTextures[i]);
+		// position
+		badSpirits[i].setPosition(sf::Vector2f(((float) i)*100.f, 0)); // position absolue
+		// scale
+		badSpirits[i].setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
+		// color
+		badSpirits[i].setColor(sf::Color(129, 86, 40));  //#815628
 
-	//Charge la texture pour les rêve
-	sf::Texture goodSpiritTexture;
-	if (!goodSpiritTexture.loadFromFile("res/goodSpirit.png"))
-		return EXIT_FAILURE;
-	sf::Sprite goodSpirit(goodSpiritTexture);
-	// position
-	goodSpirit.setPosition(sf::Vector2f(0, 0)); // position absolue
-	// scale
-	goodSpirit.setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
+		//rêve ajouté
+		goodSpirits[i] = sf::Sprite(badSpiritTextures[i]);
+		// position
+		goodSpirits[i].setPosition(sf::Vector2f(((float) i)*100.f, 250.f)); // position absolue
+		// scale
+		goodSpirits[i].setScale(sf::Vector2f(0.1*scale*(1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
+		// color
+		goodSpirits[i].setColor(sf::Color(14, 81, 99));  //#0d5163
+	}
 
 	// Load a music to play
 	/*
@@ -77,16 +86,18 @@ int main()
 		}
 
 		//Update position
-		badSpirit.setPosition(sf::Vector2f(15.36*(1.f), 85.56484*(1.f))); // position absolue
-		goodSpirit.setPosition(sf::Vector2f(((float) WIDTH - 150.36)*(1.f), 85.56484*(1.f))); // position absolue
+		badSpirits[0].setPosition(sf::Vector2f(15.36*(1.f), 85.56484*(1.f))); // position absolue
 		
 		// Clear screen
 		window.clear();
 		
 		// Draw the sprite
 		window.draw(background);
-		window.draw(badSpirit);
-		window.draw(goodSpirit);
+		for (int i = 0; i < 7; i++)
+		{
+			window.draw(badSpirits[i]);
+			window.draw(goodSpirits[i]);
+		}
 		
 		// Draw the string
 		window.display();
