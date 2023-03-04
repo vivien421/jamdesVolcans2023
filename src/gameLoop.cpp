@@ -9,9 +9,3 @@ void deplacerUnites(Joueur &demon, Joueur &reveur) {
 		u.position = u.position + u.deplacement * deltaT;
 	}
 }
-
-void ajouteUnite(Joueur &joueur, std::unordered_map<int, sf::Sprite> &unitesSprite, Unite unite, std::array<sf::Texture, 7> &spiritTextures)
-{
-	joueur.unites.push_back(unite);
-	unitesSprite.insert({unite.id, sf::Sprite(spiritTextures[unite.type])});
-}
