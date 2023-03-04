@@ -49,6 +49,16 @@ int main()
 		//couleur cauchemar = #815628; couleur rêve = #0d5163
 	}
 
+	// chargement des textures pour les batiments
+	std::array<sf::Texture, 6> buildingTextures;
+	for (int i = 0; i < 5; i++)
+	{
+		buildingTextures[i] = sf::Texture();
+		if (!buildingTextures[i].loadFromFile("../res/buildings/batiment"+std::to_string(i+1)+".png"))
+			return EXIT_FAILURE;
+		//couleur cauchemar = #815628; couleur rêve = #0d5163
+	}
+
 	// Load a music to play
 	/*
 	sf::Music music;
