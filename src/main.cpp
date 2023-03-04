@@ -93,6 +93,7 @@ int main()
 					sf::Vector2f mousePosF(static_cast<float>(pos.x), static_cast<float>(pos.y));
 					if (spawnButton.getGlobalBounds().contains(mousePosF)) {
 						std::puts("click");
+						ajouteUnite(demon, unitesSprite, Unite(2), spiritTextures);
 					}
 					break;
 				}
@@ -125,6 +126,7 @@ int main()
 		window.draw(background);
 		for( const auto& [key, value] : unitesSprite)
         	window.draw(value);
+        	window.draw(spawnButton);
 		
 		
 		// Draw the string
