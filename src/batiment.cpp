@@ -6,5 +6,5 @@ Batiment::Batiment(int new_prix, int new_pv, float new_position, int new_taille,
 {}
 
 void Batiment::debugAfficher() const {
-	std::printf("Batiment: prix [%d] pv [%d], position [%f], taille [%d], type [%s]\n", prix, pv, position, taille, type.c_str()); 
+	std::printf("Batiment: prix [%d] pv [%d], position [%f], taille [%f], type [%s]\n", prix, pv, position, taille, type.c_str()); 
 }
