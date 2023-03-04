@@ -4,6 +4,7 @@
 #include "unite.hpp"
 #include "joueur.hpp"
 #include "batiment.hpp"
+#include "gameLoop.hpp"
 
 
 int main()
@@ -58,14 +59,22 @@ int main()
 	music.play();
 	*/
 
+	// timer 60 fps
+	double t = 0.0;
+	double deltaT = 1.0/60.0;
+
 	// initialisation du jeu
 	Unite unite;
 	Joueur joueur, bot;
+	std::array<Joueur, 2> joueurs;
+	joueurs[0] = joueur;
+	joueurs[1] = bot;
 	joueur.unites.push_back(unite);
 
 	// Start the game loop
 	while (window.isOpen())
 	{
+		//=====================Traitement================	
 		// Process events
 		sf::Event event;
 		while (window.pollEvent(event))
@@ -87,7 +96,9 @@ int main()
 		//Update position
 		badSpirit.setPosition(sf::Vector2f(15.36*(1.f), 85.56484*(1.f))); // position absolue
 		goodSpirit.setPosition(sf::Vector2f(((float) WIDTH - 150.36)*(1.f), 85.56484*(1.f))); // position absolue
+		deplacerUnites(joueur, bot);
 		
+		//=====================Affichage=================	
 		
 		// Clear screen
 		window.clear();
@@ -99,6 +110,8 @@ int main()
 		
 		// Draw the string
 		window.display();
+
+		t += deltaT;
 	}
 	return EXIT_SUCCESS;
 }

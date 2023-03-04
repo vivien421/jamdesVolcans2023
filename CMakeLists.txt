@@ -40,10 +40,12 @@ set ( ZZ3_HEADERS
 	src/unite.hpp
 	src/joueur.hpp
 	src/batiment.hpp
+	src/gameLoop.hpp
     )
 
 set ( ZZ3_SOURCES
 	src/unite.cpp
+	src/gameLoop.cpp
 	src/batiment.cpp
 	src/joueur.cpp
 	src/main.cpp
