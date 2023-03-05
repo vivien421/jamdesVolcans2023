@@ -3,8 +3,11 @@
 #include "gameLoop.hpp"
 
 class Controleur {
-	Joueur j1, j2;
+	public:
+		Joueur j1, j2;
 
-	void actualisation();
-	void creerUnite(Joueur joueur, int id);
+		void actualisation() {};
+		void creerUnite(bool demon, int type);
+		Unite getLastUnitJ1() const { return j1.unites.back(); }
+		Unite getLastUnitJ2() const { return j2.unites.back(); }
 };

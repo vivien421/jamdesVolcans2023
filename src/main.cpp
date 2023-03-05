@@ -8,6 +8,7 @@
 #include "joueur.hpp"
 #include "batiment.hpp"
 #include "gameLoop.hpp"
+#include "controleur.hpp"
 #include "../test/main_test.hpp"
 
 int main()
@@ -75,6 +76,7 @@ int main()
 	double deltaT = 1.0/60.0;
 
 	// initialisation du jeu
+	Controleur controleur;
 	Joueur demon, reveur;
 	std::unordered_map<int, sf::Sprite> unitesSprite;
 
@@ -125,12 +127,11 @@ int main()
 					else break;
 
 					// Ajout d'une unitée
-					Unite newUnit = Unite(20, 80, 0.05, 1, 1, 1, 0.02, 1, true, 1);
-					demon.unites.push_back(newUnit);
-					newUnit.debugAfficher();
-					unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
-					unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
-					unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
+					controleur.creerUnite(true, typeNewUnit);
+					controleur.getLastUnitJ1().debugAfficher();
+					unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
+					unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+					unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
 					
 					break;
 				}
@@ -149,13 +150,13 @@ int main()
 		}
 
 		//Update position
-		deplacerUnites(demon, reveur);
-		for(auto & u: demon.unites) {
+		deplacerUnites(controleur.j1, controleur.j2);
+		for(auto & u: controleur.j1.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
 			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
 		}
-		for(auto u: reveur.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f(u.position*(1.f), 100*(1.f)));
+		for(auto u: controleur.j2.unites) {
+			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
 		}
 
 		//=====================Affichage=================	
