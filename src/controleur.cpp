@@ -3,9 +3,9 @@
 #include "stats.hpp"
 
 Controleur::Controleur() {
-    j1.base = Batiment{0, 500, 0, 0.05, "base"};
+    j1.base = Batiment{0, 5000, 0, 0.05, "base"};
     j1.batiments.push_back(j1.base);
-    j2.base = Batiment{0, 500, 1, 0.05, "base"};
+    j2.base = Batiment{0, 5000, 1, 0.05, "base"};
     j2.batiments.push_back(j2.base);
 
     j1.ressource = 500;
@@ -80,7 +80,7 @@ void Controleur::gestionAttaques() {
     }
 }
 
-void Controleur::actualisation() {
-    deplacerUnites(j1, j2);
+void Controleur::actualisation(float dt) {
+    deplacerUnites(j1, j2, dt);
     gestionAttaques();
 }

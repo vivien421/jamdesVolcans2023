@@ -146,7 +146,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 500; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 1, j1\n");
     controleur.j1.debugAfficher();
@@ -155,7 +155,7 @@ void Test_Base() {
     
     for (int i  = 0; i < 500; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 2, j1\n");
     controleur.j1.debugAfficher();
@@ -164,7 +164,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 500; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 3, j1\n");
     controleur.j1.debugAfficher();
@@ -173,7 +173,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 500; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 4, j1\n");
     controleur.j1.debugAfficher();
@@ -182,7 +182,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 500; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 5, j1\n");
     controleur.j1.debugAfficher();
@@ -191,7 +191,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 500; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 6, j1\n");
     controleur.j1.debugAfficher();
@@ -200,7 +200,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 1; i++) 
     {
-        controleur.actualisation();
+        controleur.actualisation(((float)1)/60);
     }
     printf("\taprès déplacement 7, j1\n");
     controleur.j1.debugAfficher();

@@ -7,7 +7,7 @@ struct Joueur {
 	int ressource = 10;
 	std::vector<Unite> unites;
 	std::vector<Batiment> batiments;
-	Batiment base{0, 500, 0, 0.05, "base"};
+	Batiment base{0, 5000, 0, 0.05, "base"};
 
 	int getVie() const { return base.pv; }
 
