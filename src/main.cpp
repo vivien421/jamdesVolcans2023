@@ -12,8 +12,8 @@
 
 int main()
 {
-	const int WIDTH = 800;
-	const int HEIGHT = 400;
+	const int WIDTH = 1280;
+	const int HEIGHT = 720;
 	const float uniteScale = 0.1;
 
 	//Tests unitaires
@@ -82,11 +82,11 @@ int main()
 
 	// interface
 	std::array<sf::Sprite, 7> spawnButtons;
-	float buttonScale = 0.1 * scale;
+	float buttonScale = 0.1;
 	for(int i = 0; i < 7; ++i) {
 		spawnButtons[i].setTexture(spiritTextures[i]);
-		spawnButtons[i].setScale(sf::Vector2f(buttonScale * (1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
-		spawnButtons[i].setPosition(buttonScale * i * 1000.f, 0.0f);
+		spawnButtons[i].setScale(sf::Vector2f(buttonScale * scale * (1.f), buttonScale*scale*(1.f))); // facteurs d'échelle absolus
+		spawnButtons[i].setPosition(((float) WIDTH/2)+(i-7.0/2.0)*buttonScale*scale*spiritTextures[i].getSize().x* 1.f, HEIGHT-buttonScale*scale*spiritTextures[i].getSize().y);
 	}
 
 	std::array<sf::Sprite, 6> spawnBatiments;
@@ -96,6 +96,9 @@ int main()
 		spawnBatiments[i].setScale(sf::Vector2f(batimentScale * (1.f), batimentScale*(1.f))); // facteurs d'échelle absolus
 		spawnBatiments[i].setPosition(batimentScale * i * 1000.f, 1500.0f * batimentScale);
 	}
+
+
+	sf::Clock clock; // starts the clock
 
 	// Start the game loop
 	while (window.isOpen())
@@ -150,12 +153,13 @@ int main()
 			window.close();
 		}
 
-		//Update position et combat
-		controleur.actualisation();
 
-		for(auto & u: controleur.j1.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
-			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
+		//Update position
+		deplacerUnites(demon, reveur, clock.getElapsedTime().asSeconds());
+		clock.restart();
+		for(auto & u: demon.unites) {
+			unitesSprite[u.id].setPosition(sf::Vector2f((xPosition(WIDTH, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().x/2)*(1.f), (yPosition(HEIGHT, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().y/2)*(1.f)));
+
 		}
 		for(auto u: controleur.j2.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));

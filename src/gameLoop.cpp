@@ -1,8 +1,7 @@
 #include "gameLoop.hpp"
 #include "collisionEngine.hpp"
 
-void deplacerUnites(Joueur &demon, Joueur &reveur) {
-	float deltaT = 1.0/60.0;
+void deplacerUnites(Joueur &demon, Joueur &reveur, float deltaT) {
 	Unite* nextUnit = nullptr;
 
 	for(auto & u: demon.unites) {
