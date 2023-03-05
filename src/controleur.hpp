@@ -4,29 +4,17 @@
 
 class Controleur {
 	private:
-		Joueur j1, j2;
 
 		void updateOmbre(float dt);
 
 	public:
-		void actualisation(float dt);
-		void creerUnite(Joueur joueur, int id);
-};
+		Joueur j1, j2;
 
-typedef struct statsUnites {
-	int type;
-	int prix;
-	int pv;
-	int taille;
-	int degatUnite;
-	int degatBatiment;
-	int vitesseAtk;
-	int deplacement;
-	int portee;
-} statsUnites_t;
+		Controleur();
 
-statsUnites_t tabStatsUnites[] =
-{
-	statsUnites_t {1, 10, 30, 1, 10, 15, 2, 2, 1},
-	statsUnites_t {2, 15, 15, 1, 10, 5, 3, 3, 1}
+		void actualisation();
+		void gestionAttaques();
+		bool creerUnite(bool demon, int type);
+		Unite getLastUnitJ1() const { return j1.unites.back(); }
+		Unite getLastUnitJ2() const { return j2.unites.back(); }
 };

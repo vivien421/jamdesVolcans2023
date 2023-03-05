@@ -44,6 +44,7 @@ set ( ZZ3_HEADERS
 	src/controleur.hpp
 	src/gameLoop.hpp
 	src/collisionEngine.hpp
+	src/stats.hpp
 	test/main_test.hpp
     )
 
