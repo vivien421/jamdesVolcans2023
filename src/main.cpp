@@ -125,10 +125,9 @@ int main()
 					else break;
 
 					// Ajout d'une unitée
-					Unite newUnit = Unite(typeNewUnit);
-					std::cout << newUnit.id << std::endl;
-					newUnit.position = 0;
+					Unite newUnit = Unite(20, 80, 0.05, 1, 1, 1, 0.02, 1, true, 1);
 					demon.unites.push_back(newUnit);
+					newUnit.debugAfficher();
 					unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
 					unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
 					unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
