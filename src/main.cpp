@@ -77,7 +77,6 @@ int main()
 
 	// initialisation du jeu
 	Controleur controleur;
-	Joueur demon, reveur;
 	std::unordered_map<int, sf::Sprite> unitesSprite;
 
 	// interface
@@ -128,7 +127,6 @@ int main()
 
 					// Ajout d'une unitée
 					controleur.creerUnite(true, typeNewUnit);
-					controleur.getLastUnitJ1().debugAfficher();
 					unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
 					unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
 					unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
@@ -140,11 +138,11 @@ int main()
 			}
 		}
 		// Fin de la partie
-		if(demon.base.pv <= 0) {
+		if(controleur.j1.base.pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
-		if(reveur.base.pv <= 0) {
+		if(controleur.j2.base.pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}

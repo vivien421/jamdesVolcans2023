@@ -23,6 +23,7 @@ Unite::Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int
 	this->type = p_type;
 	compteur++;
 	std::cout << "Nouvelle unite crée" << std::endl;
+	debugAfficher();
 }
 
 void Unite::debugAfficher() const {
