@@ -65,13 +65,12 @@ int main()
 	}
 
 	// Load a music to play
-	/*
 	sf::Music music;
-	if (!music.openFromFile("nice_music.ogg"))
+	if (!music.openFromFile("../res/cauchemars.ogg"))
 		return EXIT_FAILURE;
 	// Play the music
+	music.setLoop(true);
 	music.play();
-	*/
 
 	// timer 60 fps
 	double t = 0.0;
@@ -158,13 +157,13 @@ int main()
 			window.close();
 		}
 
-		//Update position et combat
-		deplacerUnites(controleur.j1, controleur.j2, clock.getElapsedTime().asSeconds() );
-		controleur.gestionAttaques();
+
+		//Update position
+		controleur.actualisation(clock.getElapsedTime().asSeconds());
 		clock.restart();
 		for(auto & u: controleur.j1.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
-			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
+			unitesSprite[u.id].setPosition(sf::Vector2f((xPosition(WIDTH, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().x/2)*(1.f), (yPosition(HEIGHT, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().y/2)*(1.f)));
+
 		}
 		for(auto u: controleur.j2.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
