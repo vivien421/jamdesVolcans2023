@@ -96,6 +96,9 @@ int main()
 		spawnBatiments[i].setPosition(batimentScale * i * 1000.f, 1500.0f * batimentScale);
 	}
 
+
+	sf::Clock clock; // starts the clock
+
 	// Start the game loop
 	while (window.isOpen())
 	{
@@ -151,7 +154,8 @@ int main()
 		}
 
 		//Update position
-		deplacerUnites(demon, reveur);
+		deplacerUnites(demon, reveur, clock.getElapsedTime().asSeconds());
+		clock.restart();
 		for(auto & u: demon.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f((xPosition(WIDTH, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().x/2)*(1.f), (yPosition(HEIGHT, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().y/2)*(1.f)));
 		}
