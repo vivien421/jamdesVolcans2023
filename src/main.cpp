@@ -7,6 +7,7 @@
 #include "joueur.hpp"
 #include "batiment.hpp"
 #include "gameLoop.hpp"
+#include "controleur.hpp"
 #include "../test/main_test.hpp"
 
 int main()
@@ -22,6 +23,7 @@ int main()
 	Test_Joueur();
 	Test_Deplacement();
 	Test_Collisions();
+	Test_Base();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
@@ -76,7 +78,7 @@ int main()
 	double deltaT = 1.0/60.0;
 
 	// initialisation du jeu
-	Joueur demon, reveur;
+	Controleur controleur;
 	std::unordered_map<int, sf::Sprite> unitesSprite;
 
 	// interface
@@ -129,14 +131,13 @@ int main()
 					else break;
 
 					// Ajout d'une unitée
-					Unite newUnit = Unite(typeNewUnit);
-					std::cout << newUnit.id << std::endl;
-					newUnit.position = 0;
-					demon.unites.push_back(newUnit);
-					unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
-					unitesSprite[newUnit.id].setScale(spiritSizes[newUnit.type]*uniteScale*scale*1.f, spiritSizes[newUnit.type]*uniteScale*scale*1.f);
-					unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
-					
+					bool creation = controleur.creerUnite(true, typeNewUnit);
+					if (creation)
+					{
+						unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
+						unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+						unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
+					}
 					break;
 				}
 				case sf::Event::Resized:
@@ -148,23 +149,23 @@ int main()
 			}
 		}
 		// Fin de la partie
-		if(demon.base.pv <= 0) {
+		if(controleur.j1.base.pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
-		if(reveur.base.pv <= 0) {
+		if(controleur.j2.base.pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
 
 		//Update position
-		deplacerUnites(demon, reveur, clock.getElapsedTime().asSeconds());
-		clock.restart();
-		for(auto & u: demon.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f((xPosition(WIDTH, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().x/2)*(1.f), (yPosition(HEIGHT, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().y/2)*(1.f)));
+		deplacerUnites(controleur.j1, controleur.j2, clock.getElapsedTime().asSeconds());
+		for(auto & u: controleur.j1.unites) {
+			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
+			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
 		}
-		for(auto u: reveur.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f(u.position*(1.f), 100*(1.f)));
+		for(auto u: controleur.j2.unites) {
+			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
 		}
 
 		//=====================Affichage=================	

@@ -3,7 +3,7 @@
 
 int Entite::compteur = 0;
 
-Entite::Entite(int new_prix, int new_pv, float new_position, int new_taille):
+Entite::Entite(int new_prix, int new_pv, float new_position, float new_taille):
 	prix(new_prix), pv(new_pv), position(new_position), taille(new_taille) {
 	this->id = compteur;
 }

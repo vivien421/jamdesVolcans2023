@@ -14,7 +14,7 @@ struct Entite {
 	static int compteur;
 
 	Entite() {};
-	Entite(int new_prix, int new_pv, float new_position, int new_taille);
+	Entite(int new_prix, int new_pv, float new_position, float new_taille);
 	virtual ~Entite() {};
 
 	virtual void debugAfficher() const;
