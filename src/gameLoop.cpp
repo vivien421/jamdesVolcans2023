@@ -40,3 +40,11 @@ void deplacerUnites(Joueur &demon, Joueur &reveur) {
 		nextUnit = &u;
 	}
 }
+
+float xPosition(int WIDTH, float position) {
+	return ((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*position)))*WIDTH)*cos(-M_PI*position+M_PI));
+}
+
+float yPosition(int HEIGHT, float position) {
+	return ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*position))*HEIGHT)*sin(M_PI*position-M_PI));
+}

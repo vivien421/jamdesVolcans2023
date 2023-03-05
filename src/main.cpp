@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string> 
 #include <unordered_map>
-#include <math.h>
 #include "unite.hpp"
 #include "joueur.hpp"
 #include "batiment.hpp"
@@ -41,6 +40,8 @@ int main()
 	background.setScale(sf::Vector2f(scale*(1.f), scale*(1.f))); // facteurs d'échelle absolus
 	background.scale(sf::Vector2f(1.f, 1.f)); // facters d'échelle relatifs à l'échelle actuelle
 
+	//Création des tailles des esprits
+	std::array<float, 7> spiritSizes = {1.0, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0};
 	//Chargement des textures pour les cauchmars et rêves
 	std::array<sf::Texture, 7> spiritTextures;
 	
