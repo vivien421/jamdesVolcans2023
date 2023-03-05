@@ -7,16 +7,19 @@ Controleur::Controleur() {
     j1.batiments.push_back(j1.base);
     j2.base = Batiment{0, 500, 1, 0.05, "base"};
     j2.batiments.push_back(j2.base);
+
+    j1.ressource = 500;
 }
 
 bool Controleur::creerUnite(bool demon, int type) {
     bool creation = false;
     statsUnites_t stats = tabStatsUnites[type];
 
-    if (demon)
+    if (demon && j1.ressource >= stats.prix)
     {
         Unite unit = Unite(stats.prix, stats.pv, stats.taille, stats.degatUnite, stats.degatBatiment, stats.vitesseAtk, stats.deplacement, stats.portee, demon, type);
         
+        j1.ressource -= stats.prix;
         if (j1.unites.empty() || (!j1.unites.empty() && !CollisionEngine::Collision(unit, j1.unites.back())))
         {
             j1.unites.push_back(std::move(unit));
