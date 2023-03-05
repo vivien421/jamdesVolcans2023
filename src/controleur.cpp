@@ -87,5 +87,6 @@ void Controleur::gestionAttaques() {
 
 void Controleur::actualisation(float dt) {
     deplacerUnites(j1, j2, dt);
+    updateOmbre(dt);
     gestionAttaques();
 }
