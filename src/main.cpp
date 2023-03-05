@@ -23,7 +23,7 @@ int main()
 	//Test_Joueur();
 	//Test_Deplacement();
 	//Test_Collisions();
-	Test_Base();
+	//Test_Base();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
@@ -89,14 +89,15 @@ int main()
 		spawnButtons[i].setPosition(((float) WIDTH/2)+(i-7.0/2.0)*buttonScale*scale*spiritTextures[i].getSize().x* 1.f, HEIGHT-buttonScale*scale*spiritTextures[i].getSize().y);
 	}
 
-	std::array<sf::Sprite, 6> spawnBatiments;
+	// 
+	std::array<sf::Sprite, 2> bases;
+	bases[0].setTexture(buildingTextures[1]);
+	bases[1].setTexture(buildingTextures[2]);
 	float batimentScale = 0.1 * scale;
-	for(int i = 0; i < 6; ++i) {
-		spawnBatiments[i].setTexture(buildingTextures[i]);
-		spawnBatiments[i].setScale(sf::Vector2f(batimentScale * (1.f), batimentScale*(1.f))); // facteurs d'échelle absolus
-		spawnBatiments[i].setPosition(batimentScale * i * 1000.f, 1500.0f * batimentScale);
-	}
-
+	bases[0].setScale(sf::Vector2f(batimentScale * (1.f), batimentScale*(1.f))); // facteurs d'échelle absolus
+	bases[1].setScale(sf::Vector2f(batimentScale * (1.f), batimentScale*(1.f))); // facteurs d'échelle absolus
+	bases[0].setPosition(controleur.j1.base.position, 5000.0f * batimentScale);
+	bases[1].setPosition(controleur.j2.base.position-buildingTextures[2].getSize().x, 5000.0f * batimentScale);
 
 	sf::Clock clock; // starts the clock
 
@@ -175,7 +176,7 @@ int main()
 			window.draw(value);
 		for(auto b: spawnButtons)
 	        	window.draw(b);
-		for(auto b: spawnBatiments)
+		for(auto b: bases)
 	        	window.draw(b);
 		
 		
