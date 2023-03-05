@@ -42,3 +42,42 @@ bool Controleur::creerUnite(bool demon, int type) {
 
     return creation;
 }
+
+void Controleur::gestionAttaques() {
+    for (Unite& u : j1.unites)
+    {
+        if (!j2.unites.empty() && CollisionEngine::PeutAttaquer(u, j2.unites[0]))
+        {
+            j2.unites[0].pv -= u.degatUnite;
+        }
+        else
+        {
+            for (Batiment& b : j2.batiments)
+            {
+                if (CollisionEngine::PeutAttaquer(u, b))
+                    b.pv -= u.degatBatiment;
+            }
+        }
+    }
+
+    for (Unite& u : j2.unites)
+    {
+        if (!j1.unites.empty() && CollisionEngine::PeutAttaquer(u, j1.unites[0]))
+        {
+            j1.unites[0].pv -= u.degatUnite;
+        }
+        else
+        {
+            for (Batiment& b : j1.batiments)
+            {
+                if (CollisionEngine::PeutAttaquer(u, b))
+                    b.pv -= u.degatBatiment;
+            }
+        }
+    }
+}
+
+void Controleur::actualisation() {
+    //deplacerUnites(j1, j2);
+    gestionAttaques();
+}

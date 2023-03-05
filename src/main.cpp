@@ -135,7 +135,7 @@ int main()
 					if (creation)
 					{
 						unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
-						unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+						unitesSprite[controleur.getLastUnitJ1().id].setScale(spiritSizes[controleur.getLastUnitJ1().type]*uniteScale*scale*1.f, spiritSizes[controleur.getLastUnitJ1().type]*uniteScale*scale*1.f);
 						unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
 					}
 					break;
@@ -149,17 +149,19 @@ int main()
 			}
 		}
 		// Fin de la partie
-		if(controleur.j1.base.pv <= 0) {
+		if(controleur.j1.batiments[0].pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
-		if(controleur.j2.base.pv <= 0) {
+		if(controleur.j2.batiments[0].pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
 
-		//Update position
-		deplacerUnites(controleur.j1, controleur.j2, clock.getElapsedTime().asSeconds());
+		//Update position et combat
+		deplacerUnites(controleur.j1, controleur.j2, clock.getElapsedTime().asSeconds() );
+		controleur.gestionAttaques();
+		clock.restart();
 		for(auto & u: controleur.j1.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
 			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
