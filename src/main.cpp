@@ -80,7 +80,7 @@ int main()
 		//couleur cauchemar = #815628; couleur rêve = #0d5163
 	}
 
-	/*
+	
 	// Load a music to play
 	sf::Music music;
 	if (!music.openFromFile("../res/cauchemars.ogg"))
@@ -88,7 +88,7 @@ int main()
 	// Play the music
 	music.setLoop(true);
 	music.play();
-	*/
+
 
 	// timer 60 fps
 	double t = 0.0;
