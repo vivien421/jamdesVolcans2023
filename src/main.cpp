@@ -11,8 +11,8 @@
 
 int main()
 {
-	const int WIDTH = 800;
-	const int HEIGHT = 400;
+	const int WIDTH = 1280;
+	const int HEIGHT = 720;
 	const float uniteScale = 0.1;
 
 	//Tests unitaires
@@ -81,11 +81,11 @@ int main()
 
 	// interface
 	std::array<sf::Sprite, 7> spawnButtons;
-	float buttonScale = 0.1 * scale;
+	float buttonScale = 0.1;
 	for(int i = 0; i < 7; ++i) {
 		spawnButtons[i].setTexture(spiritTextures[i]);
-		spawnButtons[i].setScale(sf::Vector2f(buttonScale * (1.f), 0.1*scale*(1.f))); // facteurs d'échelle absolus
-		spawnButtons[i].setPosition(buttonScale * i * 1000.f, 0.0f);
+		spawnButtons[i].setScale(sf::Vector2f(buttonScale * scale * (1.f), buttonScale*scale*(1.f))); // facteurs d'échelle absolus
+		spawnButtons[i].setPosition(((float) WIDTH/2)+(i-7.0/2.0)*buttonScale*scale*spiritTextures[i].getSize().x* 1.f, HEIGHT-buttonScale*scale*spiritTextures[i].getSize().y);
 	}
 
 	std::array<sf::Sprite, 6> spawnBatiments;
