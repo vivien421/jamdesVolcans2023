@@ -3,10 +3,14 @@
 #include "gameLoop.hpp"
 
 class Controleur {
-	Joueur j1, j2;
+	private:
+		Joueur j1, j2;
 
-	void actualisation();
-	void creerUnite(Joueur joueur, int id);
+		void updateOmbre(float dt);
+
+	public:
+		void actualisation(float dt);
+		void creerUnite(Joueur joueur, int id);
 };
 
 typedef struct statsUnites {
