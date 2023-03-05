@@ -65,13 +65,12 @@ int main()
 	}
 
 	// Load a music to play
-	/*
 	sf::Music music;
-	if (!music.openFromFile("nice_music.ogg"))
+	if (!music.openFromFile("../res/cauchemars.ogg"))
 		return EXIT_FAILURE;
 	// Play the music
+	music.setLoop(true);
 	music.play();
-	*/
 
 	// timer 60 fps
 	double t = 0.0;

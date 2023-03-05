@@ -3,6 +3,10 @@
 #include "gameLoop.hpp"
 
 class Controleur {
+	private:
+
+		void updateOmbre(float dt);
+
 	public:
 		Joueur j1, j2;
 
