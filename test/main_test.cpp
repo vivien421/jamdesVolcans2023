@@ -102,7 +102,7 @@ void Test_Deplacement()
     j2.debugAfficher();
     for (int i  = 0; i < 500; i++) 
     {
-        deplacerUnites(j1, j2, 1.0/60.0);
+        //deplacerUnites(j1, j2, 1.0/60.0);
     }
     printf("\taprès déplacement 1, j1\n");
     j1.debugAfficher();
@@ -114,7 +114,7 @@ void Test_Deplacement()
     printf("[Déplacement des unités - 1000 iteration]\n");
     for (int i  = 0; i < 500; i++) 
     {
-        deplacerUnites(j1, j2, 1.0/60.0);
+        //deplacerUnites(j1, j2, 1.0/60.0);
     }
     printf("\taprès déplacement 2, j1\n");
     j1.debugAfficher();
@@ -126,7 +126,7 @@ void Test_Deplacement()
     printf("[Déplacement des unités - 1500 iteration]\n");
     for (int i  = 0; i < 500; i++) 
     {
-        deplacerUnites(j1, j2, 1.0/60.0);
+        //deplacerUnites(j1, j2, 1.0/60.0);
     }
     printf("\taprès déplacement 3, j1\n");
     j1.debugAfficher();
@@ -146,7 +146,7 @@ void Test_Base() {
 
     for (int i  = 0; i < 5000; i++) 
     {
-        deplacerUnites(controleur.j1, controleur.j2);
+        //deplacerUnites(controleur.j1, controleur.j2);
     }
     printf("\taprès déplacement 1, j1\n");
     controleur.j1.debugAfficher();

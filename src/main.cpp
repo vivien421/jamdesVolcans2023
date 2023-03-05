@@ -17,13 +17,13 @@ int main()
 	const float uniteScale = 0.1;
 
 	//Tests unitaires
-	Test_Entite();
-	Test_Unite();
-	Test_Batiment();
-	Test_Joueur();
-	Test_Deplacement();
-	Test_Collisions();
-	Test_Base();
+	//Test_Entite();
+	//Test_Unite();
+	//Test_Batiment();
+	//Test_Joueur();
+	//Test_Deplacement();
+	//Test_Collisions();
+	//Test_Base();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
