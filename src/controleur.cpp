@@ -83,7 +83,7 @@ void Controleur::gestionAttaques() {
 }
 
 void Controleur::actualisation() {
-	deplacerUnites(j1, j2);
+	//deplacerUnites(j1, j2);
 	gestionAttaques();
 	updateOmbre(1);
 }
