@@ -142,11 +142,11 @@ int main()
 			}
 		}
 		// Fin de la partie
-		if(controleur.j1.base.pv <= 0) {
+		if(controleur.j1.batiments[0].pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
-		if(controleur.j2.base.pv <= 0) {
+		if(controleur.j2.batiments[0].pv <= 0) {
 			std::puts("Perdu !");
 			window.close();
 		}
