@@ -80,6 +80,7 @@ int main()
 		//couleur cauchemar = #815628; couleur rêve = #0d5163
 	}
 
+	/*
 	// Load a music to play
 	sf::Music music;
 	if (!music.openFromFile("../res/cauchemars.ogg"))
@@ -87,6 +88,7 @@ int main()
 	// Play the music
 	music.setLoop(true);
 	music.play();
+	*/
 
 	// timer 60 fps
 	double t = 0.0;
@@ -173,6 +175,14 @@ int main()
 			window.close();
 		}
 
+		// Creation des ennemis
+		bool creation = controleur.creeUniteIA(clock.getElapsedTime().asSeconds());
+		if (creation)
+		{
+			unitesSprite.insert({controleur.getLastUnitJ2().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ2().type])});
+			unitesSprite[controleur.getLastUnitJ2().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+			unitesSprite[controleur.getLastUnitJ2().id].setColor(sf::Color(80,80,20));
+		}
 
 		//Update position
 		controleur.actualisation(clock.getElapsedTime().asSeconds());
