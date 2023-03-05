@@ -23,7 +23,7 @@ int main()
 	//Test_Joueur();
 	//Test_Deplacement();
 	//Test_Collisions();
-	Test_Base();
+	//Test_Base();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
@@ -136,10 +136,14 @@ int main()
 					if (creation)
 					{
 						unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
-						unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+						unitesSprite[controleur.getLastUnitJ1().id].setScale(spiritSizes[controleur.getLastUnitJ1().type]*uniteScale*scale*1.f, spiritSizes[controleur.getLastUnitJ1().type]*uniteScale*scale*1.f);
 						unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
 					}
 					break;
+				}
+				case sf::Event::Resized:
+				{
+					//window.setSize(sf::Vector2u(event.size.width, event.size.height));
 				}
 				default:
 					break;
