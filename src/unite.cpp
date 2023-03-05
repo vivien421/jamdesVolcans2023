@@ -8,7 +8,7 @@ Unite::Unite(int p_type){
 	compteur++;
 	std::cout << "Nouvelle unite crée" << std::endl;
 }
-Unite::Unite(int new_prix, int new_pv, int new_taille, int new_degatUnite, int new_degatBatiment,
+Unite::Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment,
 			int new_vitesseAtk, int new_deplacement, int new_porte, bool joueur):
 	Entite(new_prix, new_pv, joueur?0:100, new_taille), degatUnite(new_degatUnite), degatBatiment(new_degatBatiment),
 	vitesseAtk(new_vitesseAtk), deplacement(new_deplacement), porte(new_porte)

@@ -12,7 +12,7 @@ struct Unite : Entite {
 
 	Unite(int);
 	Unite() {};
-	Unite(int new_prix, int new_pv, int new_taille, int new_degatUnite, int new_degatBatiment,
+	Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment,
 		int new_vitesseAtk, int new_deplacement, int new_porte, bool joueur);
 	virtual ~Unite() {};
 
