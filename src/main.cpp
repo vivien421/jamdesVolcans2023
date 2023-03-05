@@ -26,7 +26,23 @@ int main()
 	//Test_Base();
 
 	// Create the main window
-	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");
+	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sweet Night");
+
+	sf::Text text;
+	sf::Font font;
+	if (!font.loadFromFile("../res/Roboto-Regular.ttf"))
+	{
+		return EXIT_FAILURE;
+	}
+	// select the font
+	text.setFont(font); // font is a sf::Font
+
+	// set the character size
+	text.setCharacterSize(24); // in pixels, not points!
+
+	// set the color
+	text.setFillColor(sf::Color::Black);
+
 	
 	// Load the background sprite to display
 	sf::Texture backgroundTexture;
@@ -169,6 +185,10 @@ int main()
 			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
 		}
 
+
+		// set the string to display
+		text.setString(std::to_string(controleur.j1.ressource));
+
 		//=====================Affichage=================	
 		// Clear screen
 		window.clear();
@@ -181,6 +201,7 @@ int main()
 	        	window.draw(b);
 		for(auto b: spawnBatiments)
 	        	window.draw(b);
+		window.draw(text);
 		
 		
 		// Draw the string
