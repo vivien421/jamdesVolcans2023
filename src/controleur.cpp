@@ -58,6 +58,8 @@ void Controleur::gestionAttaques() {
 		if (!j2.unites.empty() && CollisionEngine::PeutAttaquer(u, j2.unites[0]))
 		{
 			j2.unites[0].pv -= u.degatUnite;
+			if (j2.unites[0].pv < 0)
+				j2.unites.erase(j2.unites.begin());
 		}
 		else
 		{
@@ -74,6 +76,8 @@ void Controleur::gestionAttaques() {
 		if (!j1.unites.empty() && CollisionEngine::PeutAttaquer(u, j1.unites[0]))
 		{
 			j1.unites[0].pv -= u.degatUnite;
+			if (j1.unites[0].pv < 0)
+				j1.unites.erase(j1.unites.begin());
 		}
 		else
 		{
