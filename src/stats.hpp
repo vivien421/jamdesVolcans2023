@@ -15,13 +15,13 @@ typedef struct statsUnites {
 
 statsUnites_t tabStatsUnites[] =
 {
-	statsUnites_t {0, 10, 30, 0.02, 10, 15, 2, 0.05, 2},
-	statsUnites_t {1, 15, 15, 0.05, 10, 5, 3, 0.01, 1},
-	statsUnites_t {2, 15, 15, 0.03, 10, 5, 3, 0.02, 1},
-	statsUnites_t {3, 15, 15, 0.03, 10, 5, 3, 0.02, 1},
-	statsUnites_t {4, 15, 15, 0.03, 10, 5, 3, 0.02, 1},
-	statsUnites_t {5, 15, 15, 0.03, 10, 5, 3, 0.02, 1},
-	statsUnites_t {6, 15, 15, 0.03, 10, 5, 3, 0.02, 1}
+	statsUnites_t {0, 5, 1000, 0.02,  5,  5, 2, 0.03, 2},
+	statsUnites_t {1, 5, 1000, 0.02,  5,  3, 3, 0.06, 1},
+	statsUnites_t {2, 5, 3000, 0.02,  3,  3, 3, 0.03, 1},
+	statsUnites_t {3, 9, 2000, 0.03,  3, 10, 3, 0.02, 1},
+	statsUnites_t {4, 9, 2000, 0.03, 12,  6, 3, 0.03, 1},
+	statsUnites_t {5,20, 3500, 0.05, 12,  4, 3, 0.02, 1},
+	statsUnites_t {6,20, 3500, 0.05,  4, 12, 3, 0.02, 1}
 };
 
 #endif
