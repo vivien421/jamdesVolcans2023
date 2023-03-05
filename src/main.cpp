@@ -23,6 +23,7 @@ int main()
 	Test_Joueur();
 	Test_Deplacement();
 	Test_Collisions();
+	Test_Base();
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "SFML window");

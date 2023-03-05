@@ -2,6 +2,13 @@
 #include "collisionEngine.hpp"
 #include "stats.hpp"
 
+Controleur::Controleur() {
+    j1.base = Batiment{0, 500, 0, 0.05, "base"};
+    j1.batiments.push_back(j1.base);
+    j2.base = Batiment{0, 500, 1, 0.05, "base"};
+    j2.batiments.push_back(j2.base);
+}
+
 bool Controleur::creerUnite(bool demon, int type) {
     bool creation = false;
     statsUnites_t stats = tabStatsUnites[type];

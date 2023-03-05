@@ -8,6 +8,7 @@
 #include "joueur.hpp"
 #include "gameLoop.hpp"
 #include "collisionEngine.hpp"
+#include "controleur.hpp"
 
 void Test_Entite()
 {
@@ -61,6 +62,30 @@ void Test_Joueur()
     j.debugAfficher();
 }
 
+void Test_Collisions() {
+    printf("[CollisionEngine - pas de collisions]\n");
+    Entite e1{0, 10, 0, 3};
+    Entite e2{0, 10, 5, 1};
+    printf("Collisison entre e1 et e2: %d\n", CollisionEngine::Collision(e1, e2));
+    printf("Collisison entre e2 et e1: %d\n", CollisionEngine::Collision(e2, e1));
+    printf("\n");
+    
+    printf("[CollisionEngine - collisisons]\n");
+    Entite e3{0, 10, 0, 3};
+    Entite e4{0, 10, 2.3, 1};
+    printf("Collisison entre e4 et e3: %d\n", CollisionEngine::Collision(e3, e4));
+    printf("Collisison entre e4 et e4: %d\n", CollisionEngine::Collision(e4, e3));
+    printf("\n");
+
+    printf("[CollisionEngine - correction de la collision]\n");
+    CollisionEngine::AjusterPosition(e4, e3);
+    printf("Collisison entre e4 et e3: %d\n", CollisionEngine::Collision(e3, e4));
+    printf("Collisison entre e4 et e4: %d\n", CollisionEngine::Collision(e4, e3));
+    printf("e3.position=%f\n", e3.position);
+    printf("e4.position=%f\n", e4.position);
+    printf("\n");
+}
+
 void Test_Deplacement()
 {
     Joueur j1;
@@ -109,26 +134,22 @@ void Test_Deplacement()
     j2.debugAfficher();
 }
 
-void Test_Collisions() {
-    printf("[CollisionEngine - pas de collisions]\n");
-    Entite e1{0, 10, 0, 3};
-    Entite e2{0, 10, 5, 1};
-    printf("Collisison entre e1 et e2: %d\n", CollisionEngine::Collision(e1, e2));
-    printf("Collisison entre e2 et e1: %d\n", CollisionEngine::Collision(e2, e1));
-    printf("\n");
-    
-    printf("[CollisionEngine - collisisons]\n");
-    Entite e3{0, 10, 0, 3};
-    Entite e4{0, 10, 2.3, 1};
-    printf("Collisison entre e4 et e3: %d\n", CollisionEngine::Collision(e3, e4));
-    printf("Collisison entre e4 et e4: %d\n", CollisionEngine::Collision(e4, e3));
-    printf("\n");
+void Test_Base() {
+    printf("[Controleur - déplacement vers base adverse]\n");
+    Controleur controleur;
 
-    printf("[CollisionEngine - correction de la collision]\n");
-    CollisionEngine::AjusterPosition(e4, e3);
-    printf("Collisison entre e4 et e3: %d\n", CollisionEngine::Collision(e3, e4));
-    printf("Collisison entre e4 et e4: %d\n", CollisionEngine::Collision(e4, e3));
-    printf("e3.position=%f\n", e3.position);
-    printf("e4.position=%f\n", e4.position);
-    printf("\n");
+    controleur.creerUnite(true, 0);
+    printf("\tavant déplacement, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\tavant déplacement, j2\n");
+    controleur.j2.debugAfficher();
+
+    for (int i  = 0; i < 5000; i++) 
+    {
+        deplacerUnites(controleur.j1, controleur.j2);
+    }
+    printf("\taprès déplacement 1, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 1, j2\n");
+    controleur.j2.debugAfficher();
 }
