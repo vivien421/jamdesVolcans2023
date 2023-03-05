@@ -3,7 +3,7 @@
 #include "entite.hpp"
 
 struct Unite : Entite {
-	int type;
+	int type = 1;
 	int degatUnite = 0;
 	int degatBatiment = 0;
 	int vitesseAtk = 1;
@@ -12,8 +12,8 @@ struct Unite : Entite {
 
 	Unite(int);
 	Unite() {};
-	Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment,
-		int new_vitesseAtk, int new_deplacement, int new_porte, bool joueur);
+	Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment, int new_vitesseAtk, float new_deplacement, int new_porte, bool joueur);
+	Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment, int new_vitesseAtk, float new_deplacement, int new_porte, bool joueur, int p_type);
 	virtual ~Unite() {};
 
 	void debugAfficher() const override;
