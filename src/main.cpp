@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string> 
 #include <unordered_map>
-#include <math.h>
 #include "unite.hpp"
 #include "joueur.hpp"
 #include "batiment.hpp"
@@ -38,6 +37,8 @@ int main()
 	background.setScale(sf::Vector2f(scale*(1.f), scale*(1.f))); // facteurs d'échelle absolus
 	background.scale(sf::Vector2f(1.f, 1.f)); // facters d'échelle relatifs à l'échelle actuelle
 
+	//Création des tailles des esprits
+	std::array<float, 7> spiritSizes = {1.0, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0};
 	//Chargement des textures pour les cauchmars et rêves
 	std::array<sf::Texture, 7> spiritTextures;
 	
@@ -109,7 +110,7 @@ int main()
 					newUnit.position = 0;
 					demon.unites.push_back(newUnit);
 					unitesSprite.insert({newUnit.id, sf::Sprite(spiritTextures[newUnit.type])});
-					unitesSprite[newUnit.id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+					unitesSprite[newUnit.id].setScale(spiritSizes[newUnit.type]*uniteScale*scale*1.f, spiritSizes[newUnit.type]*uniteScale*scale*1.f);
 					unitesSprite[newUnit.id].setColor(sf::Color(80,80,20));
 					
 					break;
@@ -129,8 +130,7 @@ int main()
 		//Update position
 		deplacerUnites(demon, reveur);
 		for(auto & u: demon.unites) {
-			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
-			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
+			unitesSprite[u.id].setPosition(sf::Vector2f((xPosition(WIDTH, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().x/2)*(1.f), (yPosition(HEIGHT, u.position)-spiritSizes[u.type]*uniteScale*scale*spiritTextures[u.type].getSize().y/2)*(1.f)));
 		}
 		for(auto u: reveur.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(u.position*(1.f), 100*(1.f)));
