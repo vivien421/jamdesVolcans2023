@@ -15,7 +15,7 @@ typedef struct statsUnites {
 
 statsUnites_t tabStatsUnites[] =
 {
-	statsUnites_t {0, 10, 30, 0.02, 10, 15, 2, 0.02, 1},
+	statsUnites_t {0, 10, 30, 0.02, 10, 15, 2, 0.02, 5},
 	statsUnites_t {1, 15, 15, 0.05, 10, 5, 3, 0.01, 1},
 	statsUnites_t {2, 15, 15, 0.03, 10, 5, 3, 0.02, 1},
 	statsUnites_t {3, 15, 15, 0.03, 10, 5, 3, 0.02, 1},

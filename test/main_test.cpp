@@ -144,12 +144,66 @@ void Test_Base() {
     printf("\tavant déplacement, j2\n");
     controleur.j2.debugAfficher();
 
-    for (int i  = 0; i < 5000; i++) 
+    for (int i  = 0; i < 500; i++) 
     {
-        deplacerUnites(controleur.j1, controleur.j2);
+        controleur.actualisation();
     }
     printf("\taprès déplacement 1, j1\n");
     controleur.j1.debugAfficher();
     printf("\taprès déplacement 1, j2\n");
+    controleur.j2.debugAfficher();
+    
+    for (int i  = 0; i < 500; i++) 
+    {
+        controleur.actualisation();
+    }
+    printf("\taprès déplacement 2, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 2, j2\n");
+    controleur.j2.debugAfficher();
+
+    for (int i  = 0; i < 500; i++) 
+    {
+        controleur.actualisation();
+    }
+    printf("\taprès déplacement 3, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 3, j2\n");
+    controleur.j2.debugAfficher();
+
+    for (int i  = 0; i < 500; i++) 
+    {
+        controleur.actualisation();
+    }
+    printf("\taprès déplacement 4, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 4, j2\n");
+    controleur.j2.debugAfficher();
+
+    for (int i  = 0; i < 500; i++) 
+    {
+        controleur.actualisation();
+    }
+    printf("\taprès déplacement 5, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 5, j2\n");
+    controleur.j2.debugAfficher();
+
+    for (int i  = 0; i < 500; i++) 
+    {
+        controleur.actualisation();
+    }
+    printf("\taprès déplacement 6, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 6, j2\n");
+    controleur.j2.debugAfficher();
+
+    for (int i  = 0; i < 1; i++) 
+    {
+        controleur.actualisation();
+    }
+    printf("\taprès déplacement 7, j1\n");
+    controleur.j1.debugAfficher();
+    printf("\taprès déplacement 7, j2\n");
     controleur.j2.debugAfficher();
 }

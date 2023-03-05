@@ -17,12 +17,12 @@ int main()
 	const float uniteScale = 0.1;
 
 	//Tests unitaires
-	Test_Entite();
-	Test_Unite();
-	Test_Batiment();
-	Test_Joueur();
-	Test_Deplacement();
-	Test_Collisions();
+	//Test_Entite();
+	//Test_Unite();
+	//Test_Batiment();
+	//Test_Joueur();
+	//Test_Deplacement();
+	//Test_Collisions();
 	Test_Base();
 
 	// Create the main window
@@ -151,8 +151,9 @@ int main()
 			window.close();
 		}
 
-		//Update position
-		deplacerUnites(controleur.j1, controleur.j2);
+		//Update position et combat
+		controleur.actualisation();
+
 		for(auto & u: controleur.j1.unites) {
 			unitesSprite[u.id].setPosition(sf::Vector2f(((WIDTH/2)+((0.4*(1+0.1*cos(6*M_PI*u.position)))*WIDTH)*cos(-M_PI*u.position+M_PI))*(1.f), ((3*HEIGHT/4)+(0.5*(1+0.1*cos(6*M_PI*u.position))*HEIGHT)*sin(M_PI*u.position-M_PI))*(1.f)));
 			//std::cout<< u.position << "; " << ((WIDTH/2)+(0.4*WIDTH)*cos(-M_PI*u.position+M_PI)) << "; " << ((HEIGHT/4)+(0.5*HEIGHT)*sin(-M_PI*u.position+M_PI))<<std::endl;
