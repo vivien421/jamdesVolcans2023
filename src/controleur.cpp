@@ -43,9 +43,7 @@ bool Controleur::creerUnite(bool demon, int type) {
     return creation;
 }
 
-void Controleur::actualisation() {
-    deplacerUnites(j1, j2);
-
+void Controleur::gestionAttaques() {
     for (Unite& u : j1.unites)
     {
         if (!j2.unites.empty() && CollisionEngine::PeutAttaquer(u, j2.unites[0]))
@@ -77,4 +75,9 @@ void Controleur::actualisation() {
             }
         }
     }
+}
+
+void Controleur::actualisation() {
+    deplacerUnites(j1, j2);
+    gestionAttaques();
 }
