@@ -139,6 +139,10 @@ int main()
 					
 					break;
 				}
+				case sf::Event::Resized:
+				{
+					//window.setSize(sf::Vector2u(event.size.width, event.size.height));
+				}
 				default:
 					break;
 			}
