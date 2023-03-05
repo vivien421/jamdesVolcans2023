@@ -29,21 +29,22 @@ bool Controleur::creerUnite(bool demon, int type) {
         {
             j1.unites.push_back(std::move(unit));
             creation = true;
-
+				/*
 				std::cout << "Nouvelle unite crée" << std::endl;
 				unit.debugAfficher();
+				*/
 		}
 	}
 	else
 	{
-		Unite unit = Unite(stats.prix, stats.pv, stats.taille, stats.degatUnite, stats.degatBatiment, stats.vitesseAtk, stats.deplacement, stats.portee, !demon, type);
+		Unite unit = Unite(stats.prix, stats.pv, stats.taille, stats.degatUnite, stats.degatBatiment, stats.vitesseAtk, stats.deplacement, stats.portee, demon, type);
 		
 		if (j2.unites.empty() || (!j2.unites.empty() && !CollisionEngine::Collision(unit, j2.unites.back())))
 		{
 			j2.unites.push_back(std::move(unit));
 			creation = true;
 
-			std::cout << "Nouvelle unite crée" << std::endl;
+			std::cout << "Nouvelle unite ennemie crée" << std::endl;
 			unit.debugAfficher();
 		}
 	}
@@ -79,7 +80,11 @@ void Controleur::gestionAttaques() {
 			for (Batiment& b : j1.batiments)
 			{
 				if (CollisionEngine::PeutAttaquer(u, b))
+				{
+					u.debugAfficher();
+					b.debugAfficher();
 					b.pv -= u.degatBatiment;
+				}
 			}
 		}
 	}
@@ -88,4 +93,18 @@ void Controleur::gestionAttaques() {
 void Controleur::actualisation(float dt) {
     deplacerUnites(j1, j2, dt);
     gestionAttaques();
+}
+
+bool Controleur::creeUniteIA(float dt) {
+	bool creation = false;
+	float chance = (float)std::rand() / (float)RAND_MAX;
+
+	if (chance < 0.2 * dt)
+	{
+		int type = std::rand() % 7;
+
+		creation = creerUnite(false, type);
+	}
+	
+	return creation;
 }

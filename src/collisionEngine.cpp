@@ -31,5 +31,5 @@ bool CollisionEngine::PeutAttaquer(Unite& e1, Entite& e2) {
     if (e1.position < e2.position)
         return e2.position <= (e1.position + e1.taille + e1.porte * 0.01);
     else
-        return (e2.position + e2.taille) >= (e1.taille + e1.porte * 0.01);
+        return (e2.position + e2.taille) >= (e1.position - e1.porte * 0.01);
 }
