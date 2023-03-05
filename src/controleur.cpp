@@ -4,10 +4,11 @@
 
 bool Controleur::creerUnite(bool demon, int type) {
     bool creation = false;
+    statsUnites_t stats = tabStatsUnites[type];
 
     if (demon)
     {
-        Unite unit = Unite(20, 80, 0.05, 1, 1, 1, 0.02, 1, demon, type);
+        Unite unit = Unite(stats.prix, stats.pv, stats.taille, stats.degatUnite, stats.degatBatiment, stats.vitesseAtk, stats.deplacement, stats.portee, demon, type);
         
         if (j1.unites.empty() || (!j1.unites.empty() && !CollisionEngine::Collision(unit, j1.unites.back())))
         {
@@ -20,7 +21,7 @@ bool Controleur::creerUnite(bool demon, int type) {
     }
     else
     {
-        Unite unit = Unite(20, 80, 0.05, 1, 1, 1, 0.02, 1, !demon, type);
+        Unite unit = Unite(stats.prix, stats.pv, stats.taille, stats.degatUnite, stats.degatBatiment, stats.vitesseAtk, stats.deplacement, stats.portee, !demon, type);
         
         if (j2.unites.empty() || (!j2.unites.empty() && !CollisionEngine::Collision(unit, j2.unites.back())))
         {
