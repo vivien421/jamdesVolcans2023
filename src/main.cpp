@@ -126,11 +126,13 @@ int main()
 					else break;
 
 					// Ajout d'une unitée
-					controleur.creerUnite(true, typeNewUnit);
-					unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
-					unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
-					unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
-					
+					bool creation = controleur.creerUnite(true, typeNewUnit);
+					if (creation)
+					{
+						unitesSprite.insert({controleur.getLastUnitJ1().id, sf::Sprite(spiritTextures[controleur.getLastUnitJ1().type])});
+						unitesSprite[controleur.getLastUnitJ1().id].setScale(uniteScale*scale*1.f, uniteScale*scale*1.f);
+						unitesSprite[controleur.getLastUnitJ1().id].setColor(sf::Color(80,80,20));
+					}
 					break;
 				}
 				default:

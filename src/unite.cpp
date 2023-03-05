@@ -22,10 +22,8 @@ Unite::Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int
 	this->id = compteur;
 	this->type = p_type;
 	compteur++;
-	std::cout << "Nouvelle unite crée" << std::endl;
-	debugAfficher();
 }
 
 void Unite::debugAfficher() const {
-	std::printf("Unite: prix [%d] degat unite [%d] degat batiment [%d] pv [%d] vitesse d'attaque [%d] deplacement [%f], position [%f], taille [%f], portée [%d]\n", prix, degatUnite, degatBatiment, pv, vitesseAtk, deplacement, position, taille, porte); 
+	std::printf("Unite: id [%d] prix [%d] degat unite [%d] degat batiment [%d] pv [%d] vitesse d'attaque [%d] deplacement [%f], position [%f], taille [%f], portée [%d]\n", id , prix, degatUnite, degatBatiment, pv, vitesseAtk, deplacement, position, taille, porte); 
 }

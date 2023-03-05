@@ -14,7 +14,7 @@ struct Unite : Entite {
 	Unite() {};
 	Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment, int new_vitesseAtk, float new_deplacement, int new_porte, bool joueur);
 	Unite(int new_prix, int new_pv, float new_taille, int new_degatUnite, int new_degatBatiment, int new_vitesseAtk, float new_deplacement, int new_porte, bool joueur, int p_type);
-	virtual ~Unite() {};
+	virtual ~Unite() {}
 
 	void debugAfficher() const override;
 };

@@ -7,7 +7,7 @@ class Controleur {
 		Joueur j1, j2;
 
 		void actualisation() {};
-		void creerUnite(bool demon, int type);
+		bool creerUnite(bool demon, int type);
 		Unite getLastUnitJ1() const { return j1.unites.back(); }
 		Unite getLastUnitJ2() const { return j2.unites.back(); }
 };
